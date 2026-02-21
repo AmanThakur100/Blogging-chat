@@ -8,6 +8,13 @@ const userSchema = mongoose.Schema({
   age: Number,
   email: String,
   password: String,
+  post: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "post",
+    },
+  ],
 });
 
-export const user = mongoose.model("user", userSchema);
+const user = mongoose.model("user", userSchema);
+module.exports = user;
